@@ -1,0 +1,26 @@
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form>
+    <h3 style="color: #ffffff;">BMI Calculator</h3>
+
+    <label for="height">Height</label>
+    <!-- Ng-Model is Used to bind value of input to variable -->
+    <input type="text" [(ngModel)]="height" name="height" placeholder="in" id="height">
+
+    <label for="weight">Weight</label>
+    <input type="text" [(ngModel)]="weight" name="weight" placeholder="lb" id="weight">
+
+    <button style="color: #000000;" (click)="calculateBmi(this.height, this.weight)">Submit</button>
+    <br>
+    <br>
+    <!-- Ng-If used as an If Else Statement in HTML  -->
+    <h4 *ngIf="this.bmi==0 else elseBlock">
+    </h4>
+    <ng-template #elseBlock>
+        <h4>BMI is: {{this.bmi}} </h4>
+        <h4>{{this.result}} </h4>
+
+    </ng-template>
+</form>
