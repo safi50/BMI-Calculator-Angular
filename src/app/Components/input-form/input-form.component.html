@@ -15,12 +15,16 @@
     <button style="color: #000000;" (click)="calculateBmi(this.height, this.weight)">Submit</button>
     <br>
     <br>
-    <!-- Ng-If used as an If Else Statement in HTML  -->
-    <h4 *ngIf="this.bmi==0 else elseBlock">
-    </h4>
-    <ng-template #elseBlock>
-        <h4>BMI is: {{this.bmi}} </h4>
+    <h4 *ngIf="(this.height<=0 || this.weight <=0) else elseContinue">
         <h4>{{this.result}} </h4>
-
+    </h4>
+    <ng-template #elseContinue>
+        <!-- Ng-If used as an If Else Statement in HTML  -->
+        <h4 *ngIf="this.bmi==0 else elseBlock">
+        </h4>
+        <ng-template #elseBlock>
+            <h4>BMI is: {{this.bmi}} </h4>
+            <h4>{{this.result}} </h4>
+        </ng-template>
     </ng-template>
 </form>

@@ -18,6 +18,12 @@ export class InputFormComponent {
   }
 
   calculateBmi(height: number, weight: number): number {
+
+    if ((this.height <= 0) || (this.weight <= 0)) {
+      this.result = "Please enter a valid Input";
+      return 0;
+    }
+
     console.log("Calculate BMI");
 
     this.bmi = Number(((703 * Number(this.weight)) / (Number(this.height) * Number(this.height))).toFixed(2));
